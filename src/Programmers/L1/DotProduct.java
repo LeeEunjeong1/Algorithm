@@ -1,4 +1,4 @@
-package Programmers;
+package Programmers.L1;
 
 public class DotProduct {
     public int solution(int[] a, int[] b) {

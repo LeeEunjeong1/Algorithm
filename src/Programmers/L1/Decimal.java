@@ -1,4 +1,4 @@
-package Programmers;
+package Programmers.L1;
 
 public class Decimal {
     public int solution(int[] nums) {

@@ -1,4 +1,4 @@
-package Programmers;
+package Programmers.L1;
 
 public class NumPlus {
     public int solution(int[] numbers) {

@@ -1,4 +1,4 @@
-package Programmers;
+package Programmers.L1;
 
 public class NewId {
     public String solution(String new_id) {

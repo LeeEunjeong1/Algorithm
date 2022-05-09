@@ -1,4 +1,4 @@
-package Programmers;
+package Programmers.L1;
 
 public class Plus {
     public int solution(int[] absolutes, boolean[] signs) {
