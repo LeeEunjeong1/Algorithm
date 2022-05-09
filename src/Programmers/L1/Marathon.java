@@ -7,6 +7,7 @@ public class Marathon {
         String answer = "";
         HashMap<String,Integer> mapP = new HashMap<String, Integer>();
         for(String s:participant){
+        
             mapP.put(s,mapP.getOrDefault(s, 0)+1); // 참가자 추가
         }
         for(String s:completion){
@@ -34,3 +35,5 @@ public class Marathon {
 }
 
 //https://programmers.co.kr/learn/courses/30/lessons/42576/solution_groups?language=java
+
+//getOrDefault(key값,default) - key값으 value, key값이 없으면 default값 지정
