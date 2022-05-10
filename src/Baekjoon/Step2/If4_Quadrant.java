@@ -16,6 +16,7 @@ public class If4_Quadrant {
 			if(y>0)System.out.println("Quadrant 2");
 			else System.out.println("Quadrant 3");
 		}
+		sc.close();
 	}
 
 }

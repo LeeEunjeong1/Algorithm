@@ -13,6 +13,7 @@ public class computation {
 		//System.out.println((double)a/b);
 		System.out.println(a*b);
 		System.out.println((double)a/(double)b);
+		sc.close();
 	}
 
 }

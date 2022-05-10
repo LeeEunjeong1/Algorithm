@@ -11,7 +11,7 @@ public class If1 {
 		if(A>B) System.out.println(">");
 		else if (A<B) System.out.println("<");
 		else System.out.println("==");
-		
+		sc.close();
 	}
 
 }

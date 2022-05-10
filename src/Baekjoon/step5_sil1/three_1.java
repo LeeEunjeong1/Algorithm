@@ -29,5 +29,6 @@ public class three_1 {
 				}else System.out.println(A);
 			}
 		}
+		sc.close();
 	}
 }

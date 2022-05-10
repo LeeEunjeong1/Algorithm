@@ -12,6 +12,7 @@ public class gugudan {
 			
 			System.out.println(N+" * "+i+" = "+gu);
 		}
+		sc.close();
 	}
 
 }

@@ -15,6 +15,7 @@ public class max {
 		Arrays.sort(array);
 		
 		System.out.println(array[0]+" "+array[N-1]);
+		sc.close();
 	}
 
 }

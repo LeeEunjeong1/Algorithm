@@ -15,7 +15,7 @@ public class X {
 			}
 		}
 			
-		
+		sc.close();
 		
 			
 	}

@@ -14,6 +14,7 @@ public class plus {
 			
 			System.out.println(A+B);
 		}
+		sc.close();
 	
 			
 	}

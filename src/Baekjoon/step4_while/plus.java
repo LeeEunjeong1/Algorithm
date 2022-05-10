@@ -16,7 +16,7 @@ public class plus {
 		}
 		
 		
-			
+		sc.close();
 	}
 
 }

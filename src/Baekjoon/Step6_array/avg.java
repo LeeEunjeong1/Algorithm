@@ -16,6 +16,7 @@ public class avg {
 		Arrays.sort(array);
 		
 		System.out.println(sum*100.0/array[N-1]/N);
+		sc.close();
 
 	}
 

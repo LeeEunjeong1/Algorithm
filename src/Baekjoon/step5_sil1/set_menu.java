@@ -23,6 +23,7 @@ public class set_menu {
 
 		}
 		System.out.println(hamburger + cola - 50);
+		sc.close();
 	}
 
 }
