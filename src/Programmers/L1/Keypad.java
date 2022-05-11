@@ -6,17 +6,13 @@ public class Keypad {
         Integer left = 12;
         Integer right = 10;
         
-       
-
         for(int i = 0; i< numbers.length;i++){
             if(numbers[i]==1|numbers[i]==4||numbers[i]==7){
                 left = numbers[i];
                 answer += "L";
-               System.out.println(i+" : "+numbers[i]+" left "+answer);
             }else if(numbers[i]==3|numbers[i]==6||numbers[i]==9){
                 right =numbers[i];
                 answer += "R";
-                System.out.println(i+" : "+numbers[i]+" right "+answer);
             }else{
                 numbers[i] = numbers[i]==0 ? 11 : numbers[i];
 
@@ -28,27 +24,21 @@ public class Keypad {
                     //left가 더 가깝다
                     left =numbers[i];
                     answer += "L";
-                    System.out.println(i+" : "+numbers[i]+ " abs "+answer);
                 }else if(tmpL > tmpR){
                     //right가  더 가깝다
                     right =numbers[i];
                     answer += "R";
-                    System.out.println(i+" : "+numbers[i]+ " abs "+answer);
                 }else{
                     if(hand.equals("right")){
                         answer += "R";
                         right = numbers[i];
-                        System.out.println(i+" : "+numbers[i]+" hand-right "+answer);
                     }else{
                         answer +="L";
                         left = numbers[i];
-                        System.out.println(i+" : "+numbers[i]+" hand-left "+answer);
                     }
                     
-
                 }
             }
-
 
         }
         return answer;
@@ -69,8 +59,7 @@ public class Keypad {
         if(num == 0){
             return 0;
         }
-        return 4;
-        
+        return 4;    
     }
     public static void main(String[] args) {
         Keypad kObject = new Keypad();
