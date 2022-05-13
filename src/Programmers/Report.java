@@ -2,6 +2,7 @@ package Programmers;
 
 import java.util.HashMap;
 import java.util.HashSet;
+//https://jangcenter.tistory.com/116
 
 public class Report {
     public int[] solution(String[] id_list, String[] report, int k) {
