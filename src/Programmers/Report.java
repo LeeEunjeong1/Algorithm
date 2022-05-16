@@ -9,12 +9,13 @@ public class Report {
         int[] answer = new int[id_list.length];
 
         HashMap<String,HashSet<String>> reportMap = new HashMap<String,HashSet<String>>(); //리폿 리스트
+        HashMap<String, Integer> idxMap = new HashMap<>();
         //정지 메일 받는 사람
 
         //reportMap 초기화
         for(int i = 0 ; i< id_list.length;i++){
             reportMap.put(id_list[i],new HashSet<>());
-
+            idxMap.put(id_list[i],i);   
         }
 
         //reportMap에 신고 기록하기
@@ -26,12 +27,13 @@ public class Report {
             System.out.println(reportMap);
         }
 
-        //k번 이상 친고당하면 이용 정지
+        //k번 이상 신고당하면 이용 정지
         for(int i = 0 ; i<id_list.length;i++){
-            if(reportMap.get(id_list[i]).size() >= k){ 
-                answer[i]=reportMap.get(id_list[i]).size();
-            }else{
-                answer[i]=0;
+            HashSet<String> send = reportMap.get(id_list[i]);
+            if(send.size() >= k){ 
+                for(String name : send){
+                    answer[idxMap.get(name)] ++ ;
+                }
             }
         }
 
