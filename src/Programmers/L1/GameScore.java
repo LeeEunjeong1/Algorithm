@@ -7,6 +7,7 @@ public class GameScore {
     public int solution(String dartResult) {
         int answer = 0;
         int cnt = 0;
+        int tmp = 0;
         ArrayList<Integer> num = new ArrayList<Integer>();
 
         for(int i = 0 ;i<dartResult.length();i++){
@@ -31,19 +32,24 @@ public class GameScore {
         
         for(int i = 1 ; i <dartResult.length() ; i++){
             System.out.println("ii "+i + " dart "+dartResult.charAt(i)+" i "+(i-1)/2);
-            if(dartResult.charAt(i)=='S'){            
+            if(dartResult.charAt(i)=='S'){  
+                tmp++;          
                 list.add(Math.pow(num.get((i-1)/2),1));
             }else if(dartResult.charAt(i)=='D'){
+                tmp++;   
                 list.add(Math.pow(num.get((i-1)/2),2));
             }else if(dartResult.charAt(i)=='T'){
+                tmp++;   
                 list.add(Math.pow(num.get((i-1)/2),3));
             }else if(dartResult.charAt(i)=='*'){
+                tmp++;   
                 for(int j = 0 ; j<list.size();j++){                    
                    // list.add(j, list.get(j)*2);
                    list.set(j, list.get(j)*2);
                    
                 }
             }else if(dartResult.charAt(i)=='#'){
+                tmp++;   
                 //나누기 2 +1   
                 list.set((i-1)/2,list.get((i-1)/2)*(-1));      
             }
