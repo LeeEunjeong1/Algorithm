@@ -1,49 +1,52 @@
 package Programmers.L1;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 
 public class FailureRate {
     public int[] solution(int N, int[] stages) {
         int[] answer=new int[N];
-        ArrayList<Integer> list  = new ArrayList<Integer>();
-        int size = stages.length;
-        HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+        HashMap<Integer,Double> map = new HashMap<Integer,Double>();
 
-        //N번째 스테이지까지 통과
-        for(int j = 1 ; j<N+1;j++){
-            System.out.println("N "+j );
-            for(int i = 0 ; i<stages.length;i++){
-                int cnt =0;
+          for(int i = 1 ; i<N+1;i++){
+            int stage = i;
+            int noClearPlayer = 0;
+            int currentStagePlayer = 0;
+            
+            for(int j=0; j < stages.length; j++) {
+                int player = stages[j];
                 
-                if(stages[i]<=j && size >0){
-                    //i번째가 j번째 스테이지 실패하면 cnt 1증가, size size에서 cnt 빼기
-                    cnt = cnt+1;
-                    size = size-cnt;
-                   
+                //현재 스테이지 클리어 못한사람
+                if(stage == player) {
+                    noClearPlayer++;
                 }
-                System.out.println("cnt "+cnt+" size "+size);
-                //키(번호)-밸류(실패율)
-                         
+                //현재 스테이지 도전자
+                if(stage<=player) {
+                    currentStagePlayer++;
+                }
             }
-        }
-        for(int i=0;i<map.size();i++){
-            //실패율 내림차순 정렬을 위해 list에 넣기           
-            list.add(map.get(i));          
+            
+            double failureRate = 0;
+              //스테이지에 도달했으나 아직 클리어하지 못한 플레이어의 수 / 스테이지에 도달한 플레이어 수 (도전자수)
+            if(noClearPlayer!=0 && currentStagePlayer!=0) {
+                failureRate = (double)noClearPlayer / (double)currentStagePlayer;
+            }
+            
+            map.put(stage, failureRate);
+
         }
         //내림차순 정렬 - 실패율 리스트
-        Collections.sort(list, Collections.reverseOrder());
-
-        for(int i = 0 ;i<list.size();i++){
-            for (Integer key : map.keySet()) {
-                Integer value = map.get(key);    
-                if (value == list.get(i)) {
-                    answer[i]=key;
+        for(int i=0; i<N; i++) {
+            double max = -1;
+            int maxKey = 0;
+            for(Integer key : map.keySet()) {
+                if(max < map.get(key)) {
+                    max = map.get(key);
+                    maxKey = key;
                 }
             }
+            answer[i] = maxKey;
+            map.remove(maxKey);
         }
-
         
         return answer;
     }
