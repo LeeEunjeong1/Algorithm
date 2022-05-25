@@ -42,8 +42,10 @@ public class WeirdString {
                             answer += Character.toLowerCase(word.charAt(j));
                         }
                     }
-                    answer+=" ";
-                 
+                    if(i < s.length()-1){
+                        answer+=" ";  
+                    }
+                               
 
                 }
 
