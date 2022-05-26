@@ -8,6 +8,8 @@ public class WeirdString {
     public String solution(String s) {
         String answer = "";
         ArrayList<Integer> blank = new ArrayList<Integer>();
+      
+
 
         for(int i = 0 ; i<s.length();i++){
             if(s.charAt(i) == ' '){
@@ -15,11 +17,18 @@ public class WeirdString {
             }      
    
         }
-        blank.add(s.length());
+        if(s.charAt(s.length()-1)!=' '){
+            blank.add(s.length());
+           
+        }else{
+            s = s.substring(0, s.length()-1);
+        }
+
 
         for(int b : blank){
             for(int i = 0 ; i<s.length()+1;i++){  
                 if(i == b||blank.get(blank.indexOf(b)) == blank.size()-1){ // 공백을 만난 것
+
            
                     String word = "";
              
@@ -32,6 +41,7 @@ public class WeirdString {
                     }else{
                         word = s.substring(i-(blank.get(blank.indexOf(b)-1))-2, i);
                    }
+                 System.out.println(word);
                 
                     for(int j = 0 ; j<word.length() ; j++){
                         if(j%2==0){
@@ -57,6 +67,6 @@ public class WeirdString {
     }
     public static void main(String[] args) {
         WeirdString wObject = new WeirdString();
-        wObject.solution("try hello world");
+        wObject.solution("try hello world  ");
     }
 }
