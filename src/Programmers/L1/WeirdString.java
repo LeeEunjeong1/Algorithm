@@ -26,20 +26,19 @@ public class WeirdString {
         for(int b : blank){
             for(int i = 0 ; i<ss.length()+1;i++){  
                 if(i == b||blank.get(blank.indexOf(b)) == blank.size()-1){ // 공백을 만난 것
-
            
                     String word = "";
              
                     if(blank.indexOf(b)==0){
                          word = ss.substring(0, i);
+                         
                     }else if(b==ss.length()){
-                        word = ss.substring(blank.get(blank.indexOf(b)-1)+1, i);
-
-
+                        word = ss.substring(blank.get(blank.indexOf(b)-1)+1, i);                        
+       
                     }else{
-                        word = ss.substring(i-(blank.get(blank.indexOf(b)-1))-2, i);
+                        
+                        word = ss.substring(i-(blank.get(blank.indexOf(b)-1)), i); 
                    }
-                 System.out.println(word);
                 
                     for(int j = 0 ; j<word.length() ; j++){
                         if(j%2==0){
@@ -64,6 +63,6 @@ public class WeirdString {
     }
     public static void main(String[] args) {
         WeirdString wObject = new WeirdString();
-        wObject.solution("try hello world  ");
+        wObject.solution("abc abc abc ");
     }
 }
