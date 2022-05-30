@@ -2,7 +2,6 @@ package Programmers.L2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 
 class Uid{
     String uid;
@@ -10,37 +9,39 @@ class Uid{
 
 public class OpenChat {
     public String[] solution(String[] record) {
-        String[] answer = new String[record.length];
+
         
-        ArrayList<String> answerArr = new ArrayList<String>();
-        ArrayList<String> msg = new ArrayList<String>();
-        
+        ArrayList<String> msg = new ArrayList<String>();        
         HashMap<String,String> nickname = new HashMap<String,String>();
+        System.out.println(record.length);
+
         for(int i = 0 ;i< record.length;i++){
+            System.out.println(i);
                  
             String[] recordArr = record[i].split(" "); 
 
-            switch(recordArr[0]){
-                case "Enter":{ // 들어왔습니다 + 닉네임 
-                    nickname.put(recordArr[1], recordArr[2]); // uid/닉네임
-                }
-                case "Leave":{
-                }
-                case "Change":{
-                    nickname.put(recordArr[1],recordArr[2]); // uid/닉네임
-                }
-            }
+            if(recordArr[0].equals("Enter")){
+                 // 들어왔습니다 + 닉네임 
+                 nickname.put(recordArr[1], recordArr[2]); // uid/닉네임
+                 msg.add(recordArr[1]+"님이 들어왔습니다.");
 
+
+            }else if(recordArr[0].equals("Leave")){
+                msg.add(recordArr[1]+"님이 나갔습니다.");
+         
+
+            }else{
+                nickname.put(recordArr[1],recordArr[2]); // uid/닉네임
+            }
         }
-        Iterator<String> uid = msg.keySet().iterator();
-        while (uid.hasNext()){
-            String key = uid.next();
-            answerArr.add(nickname.get(key)+msg.get(key));
+        String[] answer = new String[msg.size()];
+        for(int i = 0 ; i<msg.size();i++){
+            int idx = msg.get(i).indexOf("님");
+            String uid = msg.get(i).substring(0,idx);
+
+            String message = msg.get(i).substring(idx,msg.get(i).length());
+            answer[i] = nickname.get(uid)+message;
         }
-        for(int i = 0 ; i < answerArr.size() ; i++){
-            answer[i] = answerArr.get(i);
-        }
-        System.out.println(answer);
 
         return answer;
     }
