@@ -3,10 +3,6 @@ package Programmers.L2;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-class Uid{
-    String uid;
-}
-
 public class OpenChat {
     public String[] solution(String[] record) {
         
