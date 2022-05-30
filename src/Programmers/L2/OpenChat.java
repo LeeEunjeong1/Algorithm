@@ -9,7 +9,6 @@ class Uid{
 
 public class OpenChat {
     public String[] solution(String[] record) {
-
         
         ArrayList<String> msg = new ArrayList<String>();        
         HashMap<String,String> nickname = new HashMap<String,String>();
@@ -25,10 +24,8 @@ public class OpenChat {
                  nickname.put(recordArr[1], recordArr[2]); // uid/닉네임
                  msg.add(recordArr[1]+"님이 들어왔습니다.");
 
-
             }else if(recordArr[0].equals("Leave")){
-                msg.add(recordArr[1]+"님이 나갔습니다.");
-         
+                msg.add(recordArr[1]+"님이 나갔습니다.");         
 
             }else{
                 nickname.put(recordArr[1],recordArr[2]); // uid/닉네임
