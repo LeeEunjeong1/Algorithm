@@ -29,7 +29,7 @@ public class StringCompression {
                 if(prevStr.equals(curStr)){ // 이전 문자열과 현재 문자열이 같으면 
                     count ++; // count 증가
                     continue; // 문자열 새로 추가 X -> 다음 문자열 비교하기
-                }else if (count > 1){ // 이전 문자열과 현재 문자열이 같이 않고, count가 1 이상인 경우
+                }else if (count > 1){ // 이전 문자열과 현재 문자열이 같이 않고, count가 1보다 큰 경우
                     str += count+prevStr; // 연속 갯수+문자열 추가
                     count = 1; // count 1로 초기화
                 }else{ // 이전 문자열과 현재 문자열이 같지 않고, count가 1인 경우
@@ -39,8 +39,8 @@ public class StringCompression {
                 prevStr = curStr; // 비교 문자열 갱신 prevStr -> curStr
             }
 
-            if(count > 1){
-                str  += count+prevStr;
+            if(count > 1){ // count가 1보다 크면
+                str  += count+prevStr; 
             }else{
                 str += prevStr;
             }
@@ -49,7 +49,7 @@ public class StringCompression {
                 str += s.substring(s.length()-s.length()%i, s.length());            
             }
 
-            answer = Math.min(answer,str.length());
+            answer = Math.min(answer,str.length()); // 가장 작은 길이 -> answer
             System.out.println(answer);
             System.out.println(str);
         }
