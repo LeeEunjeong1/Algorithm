@@ -3,11 +3,14 @@ package Programmers.L2;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//2019 KAKAO BLIND RECRUITMENT - 오픈채팅방
+
+
 public class OpenChat {
     public String[] solution(String[] record) {
         
         ArrayList<String> msg = new ArrayList<String>();        
-        HashMap<String,String> nickname = new HashMap<String,String>();
+        HashMap<String,String> nickname = new HashMap<>();
         System.out.println(record.length);
 
         for(int i = 0 ;i< record.length;i++){
