@@ -18,7 +18,8 @@ public class StringCompression {
 
         // 1~s.legnth()/2 단위로 압축
         for(int i = 1 ; i <= s.length()/2 ; i++){
-            String str = ""; // 압축 결과 문자열
+            StringBuilder str = new StringBuilder();
+          //  String str = ""; // 압축 결과 문자열
             String prevStr = ""; // 이전 문자열
             int count = 1; // 연속 갯수
 
@@ -30,28 +31,27 @@ public class StringCompression {
                     count ++; // count 증가
                     continue; // 문자열 새로 추가 X -> 다음 문자열 비교하기
                 }else if (count > 1){ // 이전 문자열과 현재 문자열이 같이 않고, count가 1보다 큰 경우
-                    str += count+prevStr; // 연속 갯수+문자열 추가
+                    str.append(count).append(prevStr) ; // 연속 갯수+문자열 추가
                     count = 1; // count 1로 초기화
                 }else{ // 이전 문자열과 현재 문자열이 같지 않고, count가 1인 경우
-                    str += prevStr; // 문자열 추가
+                    str.append(prevStr); // 문자열 추가
                 }
                 
                 prevStr = curStr; // 비교 문자열 갱신 prevStr -> curStr
             }
 
-            if(count > 1){ // count가 1보다 크면
-                str  += count+prevStr; 
+            if(count > 1){ // count가 1보다 크면 
+                str.append(count).append(prevStr); 
             }else{
-                str += prevStr;
+                str.append(prevStr) ;
             }
 
             if(s.length() % i != 0){
-                str += s.substring(s.length()-s.length()%i, s.length());            
+                str.append(s.substring(s.length()-s.length()%i, s.length())) ;            
             }
 
             answer = Math.min(answer,str.length()); // 가장 작은 길이 -> answer
-            System.out.println(answer);
-            System.out.println(str);
+        
         }
      
 
