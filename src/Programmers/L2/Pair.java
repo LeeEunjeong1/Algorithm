@@ -1,5 +1,6 @@
 package Programmers.L2;
 
+// https://programmers.co.kr/learn/courses/30/lessons/12973
 public class Pair {
     public int solution(String s)
     {
