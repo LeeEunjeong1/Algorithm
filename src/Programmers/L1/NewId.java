@@ -3,6 +3,7 @@ package Programmers.L1;
 public class NewId {
     public String solution(String new_id) {
         String answer = "";
+
         if(new_id.length()>0){
             //1단계
             answer = new_id.toLowerCase();
