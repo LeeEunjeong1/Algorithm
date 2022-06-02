@@ -1,5 +1,7 @@
 package Programmers.L2;
 
+// 해시 - 전화번호 목록
+
 import java.util.Arrays;
 
 public class PhoneNumList {
