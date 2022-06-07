@@ -1,6 +1,6 @@
 package Programmers.L2;
 
-import java.util.ArrayList;
+import java.util.Stack;
 
 
 // https://programmers.co.kr/learn/courses/30/lessons/12973
@@ -8,23 +8,23 @@ import java.util.ArrayList;
 public class Pair {
     public int solution(String s)
     {
-        ArrayList<Character> sList = new ArrayList<Character>();
         int answer = -1;
-        for(int i = 0 ; i<s.length();i++){
-            sList.add(s.charAt(i));
+        Stack<Character> sStack = new Stack<>();
+
+        for(int i= 0 ; i<s.length();i++){
+            if(!sStack.isEmpty() && sStack.peek()== s.charAt(i)){
+                
+                sStack.pop();
+            }else{
+                sStack.push(s.charAt(i));
+            }
+        }
+        if(sStack.isEmpty()){
+            answer = 1;
+        }else{
+            answer = 0;
         }
 
-        for(int i = 0 ; i<sList.size() ; i++){
-            System.out.println("i "+i);
-            if(sList.size()>2&&sList.get(i).equals(sList.get(i+1))){
-                System.out.println(sList.remove(i));
-                System.out.println(sList.remove(i));
-                i=0;    
-                continue;         
-            }      
-            System.out.println(sList);
-  
-        }
 
         return answer;
     }
