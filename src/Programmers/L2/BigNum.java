@@ -12,14 +12,25 @@ public class BigNum {
         ArrayList<Integer> numList = new ArrayList<>();
 
         for(int n : numbers){
-            numList.add(n);
+            if(n/10 != 0 ){
+                numList.add(n/10);
+            }
+            numList.add(n%10);
+            System.out.println(numList);
         }
         Collections.sort(numList,Collections.reverseOrder());
 
+        
         for(int i = 0 ; i < numList.size() ; i++){
             answer += numList.get(i);
         }
+        System.out.println(answer);
         return answer;
+    }
+    public static void main(String[] args) {
+        BigNum bObject = new BigNum();
+        int[] numbers = {3, 30, 34, 5, 9}; // 9534330
+        bObject.solution(numbers);
     }
     
 }
