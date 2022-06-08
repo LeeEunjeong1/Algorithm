@@ -37,3 +37,14 @@ Integer.parseInt(s);
     - 객체간의 특정한 정렬기준이 필요할때 사용
     - compare(Type o1, Type o2) 매서드 구현을 통해 사용
     - 두개의 매개변수를 비교
+    ```java
+      //두 수를 합친 수 중 큰 값을 앞으로 정렬 (내림차순)
+        Arrays.sort(sNumbers, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2){
+                return (o2+o1).compareTo(o1+o2);
+                //오름차순 정렬 (o1+o2).compareTo(o1+o2);
+            }
+            
+        });
+    ```
