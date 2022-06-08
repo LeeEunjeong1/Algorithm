@@ -1,30 +1,35 @@
 package Programmers.L2;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Arrays;
+import java.util.Comparator;
 
-// https://junghn.tistory.com/entry/%EC%9E%90%EB%B0%94-int%EB%A5%BC-%EC%9E%90%EB%A6%BF%EC%88%98%EB%B3%84-int-%EB%B0%B0%EC%97%B4%EB%A1%9C-%EB%B6%84%ED%95%A0  (각 자리수 구하기)
 // https://programmers.co.kr/learn/courses/30/lessons/42746 (문제 - 정렬 / 가장 큰 수)
 
 public class BigNum {
     public String solution(int[] numbers) {
         String answer = "";
-        ArrayList<Integer> numList = new ArrayList<>();
+        String[] sNumbers = new String[numbers.length];
 
-        for(int n : numbers){
-            if(n/10 != 0 ){
-                numList.add(n/10);
+        //String형 배열로 변환
+        for(int i = 0 ; i< numbers.length;i++){
+            sNumbers[i] = Integer.toString(numbers[i]);
+        }
+
+        //두 수를 합친 수 중 큰 값을 앞으로 정렬 (내림차순)
+        Arrays.sort(sNumbers, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2){
+                return (o2+o1).compareTo(o1+o2);
+                //오름차순 정렬 (o1+o2).compareTo(o1+o2);
             }
-            numList.add(n%10);
-            System.out.println(numList);
-        }
-        Collections.sort(numList,Collections.reverseOrder());
+            
+        });
 
-        
-        for(int i = 0 ; i < numList.size() ; i++){
-            answer += numList.get(i);
-        }
-        System.out.println(answer);
+        //000
+        if(sNumbers[0].equals("0")) return "0";
+
+        //문자열을 delimiter("") 기준으로 합친다 
+        answer = String.join("", sNumbers);
         return answer;
     }
     public static void main(String[] args) {
