@@ -1,6 +1,6 @@
 package Programmers.L1;
 
-public class Decimal {
+public class Prime {
     public int solution(int[] nums) {
         int answer = -1;
         int cnt = 0 ;
@@ -30,7 +30,7 @@ public class Decimal {
         return answer;
     }
     public static void main(String[] args) {
-        Decimal dObject = new Decimal();
+        Prime dObject = new Prime();
         int[] nums = {1,2,3,4};
 
         System.out.println(dObject.solution(nums));
