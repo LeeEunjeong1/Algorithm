@@ -13,7 +13,9 @@ public class Fibo {
     public int solution(int n) {
         int answer = 0;
         
-        answer = fibo(n);
+        //answer = fibo(n); 
+
+        
          
         return answer;
     }
@@ -23,6 +25,8 @@ public class Fibo {
         if(n==0) return 0;
         if(n==1) return 1;
         return fibo(n-1)+fibo(n-2);
+
+        //재귀함수를 사용하면 시간초과&런타임 에러 -> 깊이 초과
 
     }
     
